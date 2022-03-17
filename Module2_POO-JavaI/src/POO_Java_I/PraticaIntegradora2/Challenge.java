@@ -1,15 +1,12 @@
-package Module2.PraticaIntegradora2;
+package POO_Java_I.PraticaIntegradora2;
 
-import java.math.BigDecimal;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 
 public class Challenge {
     private HashMap<Integer, Participant> participantsList = new HashMap<Integer, Participant>();
     private Integer counterId = 0;
     private HashMap<Integer, Subscription> subscriptionsList = new HashMap<Integer,Subscription>();
+
 
     private void incrementId() {
         counterId += 1;

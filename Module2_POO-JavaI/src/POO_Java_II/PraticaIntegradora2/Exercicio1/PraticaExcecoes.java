@@ -1,4 +1,4 @@
-package POO_Java_III.PraticaIntegradora2.Exercicio1;
+package POO_Java_II.PraticaIntegradora2.Exercicio1;
 
 public class PraticaExcecoes {
     static final int a = 0;

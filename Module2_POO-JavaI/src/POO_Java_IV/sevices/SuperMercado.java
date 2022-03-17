@@ -1,32 +1,32 @@
 package POO_Java_IV.sevices;
 
 import POO_Java_IV.entites.Cliente;
+import POO_Java_IV.repository.implementations.ClientesRepo;
+import POO_Java_IV.repository.implementations.FaturasRepo;
+import POO_Java_IV.repository.implementations.ProdutoRepo;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.UUID;
 
-public class Clientes {
-    private Integer counter = 0;
-    private HashMap<Integer, Cliente> clientes = new HashMap();
+public class SuperMercado {
+    private ClientesRepo clientes = new ClientesRepo();
+    private ProdutoRepo produtos = new ProdutoRepo();
+    private FaturasRepo faturas = new FaturasRepo();
 
-    public Clientes() {
-    }
-
-    public Clientes(HashMap<Integer, Cliente> clientes) {
-        this.clientes = clientes;
+    public SuperMercado() {
     }
 
     public void adicionaCLiente(String nome, String sobrenome) {
-        counter += 1;
-        Cliente clienteNovo = new Cliente(nome, sobrenome, counter);
-        clientes.put(counter,clienteNovo);
-        System.out.println("O cliente " + clienteNovo.getNome() + "foi adicionado a lista com ID " + counter);
+        Cliente clienteNovo = new Cliente(nome, sobrenome);
+        clientes.create(clienteNovo);
+        System.out.println("O cliente " + clienteNovo.getNome() + "foi adicionado a lista com ID " + clienteNovo.getId());
     }
 
-    public void removerCliente(Integer ID) {
+    public void removerCliente(UUID ID) {
 
-        if (clientes.containsKey(ID)) {
+        if (clientes.getClientes().containsKey(ID)) {
             System.out.println("A pessoa cliente " + clientes.get(ID).getNome() + " foi removido da lista");
             clientes.remove(ID);
         }  else {
@@ -35,30 +35,52 @@ public class Clientes {
 
     }
 
-    @Override
-    public String toString() {
-        String listaDeClientes = clientes.entrySet().stream().reduce("",(listaAcumulada, cliente) -> listaAcumulada + cliente.getValue() + '\n',String::concat);
-        return "--------------Lista de Clientes--------------"+ '\n' +
-                listaDeClientes;
+
+    public void imprimeClientes() {
+        String listaDeClientes = clientes
+                .getClientes()
+                .entrySet()
+                .stream()
+                .reduce("",(listaAcumulada, cliente) -> listaAcumulada + cliente.getValue().toString() + '\n',String::concat);
+        System.out.println("--------------Lista de Clientes--------------\n" + listaDeClientes);
     }
 
-    public int quantidade() {
-        return counter;
+    public void imprimeFaturas() {
+        String listaDeFaturas = faturas
+                .getFaturas()
+                .entrySet()
+                .stream()
+                .reduce("",(listaAcumulada, fatura) -> listaAcumulada + fatura.getValue().toString() + '\n',String::concat);
+        System.out.println("--------------Lista de Faturas--------------\n" + listaDeFaturas);
     }
+
+    public void imprimeProdutos() {
+        String listaDeProdutos = produtos
+                .getProdutos()
+                .entrySet()
+                .stream()
+                .reduce("",(listaAcumulada, fatura) -> listaAcumulada + fatura.getValue().toString() + '\n',String::concat);
+        System.out.println("--------------Lista de Produtos--------------\n" + listaDeProdutos);
+    }
+
 
     public HashMap<Integer, Cliente> backupClientes() {
         return clientes;
     }
 
-    public Cliente buscarPorID (Integer ID) throws NullPointerException {
-        if (!clientes.containsKey(ID)) {
+    public Cliente buscarPorID (UUID ID) throws NullPointerException {
+        if (!clientes.getClientes().containsKey(ID)) {
             System.out.println("O ID consultado não corresponde a de um cliente registrado.");
         }
         return clientes.get(ID);
     }
 
+    public void criarFarura(Cliente cliente) {
+
+    }
+
     public Cliente buscarPorNome(String nome) throws NullPointerException {
-        Iterator iterator = clientes.entrySet().iterator();
+        Iterator iterator = clientes.getClientes().entrySet().iterator();
         Cliente clienteBuscado = new Cliente();
         boolean clienteExite = false;
         while (iterator.hasNext()) {

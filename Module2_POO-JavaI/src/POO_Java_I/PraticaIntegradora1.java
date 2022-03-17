@@ -1,4 +1,4 @@
-package Module2;
+package POO_Java_I;
 
         import java.util.HashMap;
         import java.util.Map;

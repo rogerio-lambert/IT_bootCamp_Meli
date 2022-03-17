@@ -1,2 +1,5 @@
-package POO_Java_III.Exercicio3;public interface Herbivoro {
+package POO_Java_III.Exercicio3;
+
+public interface Herbivoro {
+    public void comerPasto();
 }

@@ -1,4 +1,4 @@
-package POO_Java_II.PraticaIntegradora2.Exercicio1.Exercicio2;
+package POO_Java_II.PraticaIntegradora2.Exercicio2;
 
 public class Pereciveis extends Produto {
     private int diasParaVencer;

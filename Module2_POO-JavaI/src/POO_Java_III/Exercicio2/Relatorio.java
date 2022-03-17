@@ -1,12 +1,12 @@
 package POO_Java_III.Exercicio2;
 
-public class Relatorios implements DocumentoImprimivel{
+public class Relatorio implements DocumentoImprimivel{
     private String content;
     private  String autor;
     private int numeroDePaginas;
     private String revisor;
 
-    public Relatorios(String content, String autor, int numeroDePaginas, String revisor) {
+    public Relatorio(String content, String autor, int numeroDePaginas, String revisor) {
         this.content = content;
         this.autor = autor;
         this.numeroDePaginas = numeroDePaginas;
@@ -20,4 +20,5 @@ public class Relatorios implements DocumentoImprimivel{
         System.out.println("Revisor" + revisor);
         System.out.println("Conteúdo: " + content);
     }
+
 }

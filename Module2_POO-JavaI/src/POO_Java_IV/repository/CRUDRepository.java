@@ -1,9 +1,8 @@
 package POO_Java_IV.repository;
-import java.util.UUID;
 
-public interface CRUD <Entite, IdType> {
-    public void create(Entite entite);
-    public void put()
-
-
+public interface CRUDRepository<EntityType, IdType> {
+    public void create(EntityType entity);
+    public void update(IdType ID, EntityType entity);
+    public void remove(IdType ID);
+    public EntityType get(IdType ID);
 }

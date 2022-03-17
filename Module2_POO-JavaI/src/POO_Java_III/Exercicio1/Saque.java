@@ -1,2 +1,13 @@
-package POO_Java_III.Exercicio1;public class Saque {
+package POO_Java_III.Exercicio1;
+
+public class Saque implements Transacao{
+    @Override
+    public boolean transacaoOk() {
+        return false;
+    }
+
+    @Override
+    public boolean transacaoNaoOk() {
+        return false;
+    }
 }

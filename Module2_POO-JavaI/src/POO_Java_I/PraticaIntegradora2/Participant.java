@@ -1,4 +1,4 @@
-package Module2.PraticaIntegradora2;
+package POO_Java_I.PraticaIntegradora2;
 
 public class Participant {
     private String RG;

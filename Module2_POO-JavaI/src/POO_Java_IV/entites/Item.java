@@ -1,30 +1,32 @@
-package POO_Java_IV;
+package POO_Java_IV.entites;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 public class Item {
-    private String codigo;
-    private String nome;
+    private final UUID id = UUID.randomUUID();
+    private Produto produto;
     private float quantidade;
-    private BigDecimal precoUnitario;
 
-    public Item(String codigo, String nome, float quantidade, BigDecimal precoUnitario) {
-        this.codigo = codigo;
-        this.nome = nome;
+    public Item(Produto produto, float quantidade) {
+        this.produto = produto;
         this.quantidade = quantidade;
-        this.precoUnitario = precoUnitario;
     }
 
     public BigDecimal preco() {
-        return precoUnitario.multiply(BigDecimal.valueOf(quantidade));
+        return produto.getPrecoUnitario().multiply(BigDecimal.valueOf(quantidade));
     }
 
     @Override
     public String toString() {
-        return  "codigo= " + codigo  +
-                ", nome= " + nome + '\n' +
+        return "codigo= " + produto.getId() +
+                ", nome= " + produto.getNome() + '\n' +
                 ", quantidade= " + quantidade +
-                ", precoUnitario= R$" + precoUnitario +
+                ", precoUnitario= R$" + produto.getPrecoUnitario() +
                 ", precoTotal= R$" + preco();
+    }
+
+    public UUID getId() {
+        return id;
     }
 }
