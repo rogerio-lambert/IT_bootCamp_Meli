@@ -1,4 +1,4 @@
-package br.com.meli.springboot2.praticaItegradora2.services.DTOs;
+package br.com.meli.springboot2.praticaItegradora2.DTOs;
 
 import br.com.meli.springboot2.praticaItegradora2.models.Pessoa;
 import lombok.AllArgsConstructor;
