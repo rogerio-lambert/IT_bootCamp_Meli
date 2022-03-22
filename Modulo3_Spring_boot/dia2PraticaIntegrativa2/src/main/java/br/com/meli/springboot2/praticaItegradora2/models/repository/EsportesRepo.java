@@ -5,6 +5,7 @@ import br.com.meli.springboot2.praticaItegradora2.models.Esporte;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 
 import java.util.HashMap;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Repository
 public class EsportesRepo implements CRUDRepository<Esporte, UUID> {
     private Map<UUID, Esporte> esportes = new HashMap<>();
 

@@ -34,8 +34,8 @@ public class sportsController {
     }
 
     @GetMapping(path = "/findSportsPersons")
-    public PessoaEsporteDTO findSportPerson() {
-        return new PessoaEsporteDTO();
+    public ResponseEntity<List<PessoaEsporteDTO>> findSportPerson() {
+        return ResponseEntity.ok(myService.findPessoaSport());
     }
 
 }

@@ -1,6 +1,7 @@
 package br.com.meli.springboot2.praticaItegradora2.services;
 
 import br.com.meli.springboot2.praticaItegradora2.DTOs.EsporteDTO;
+import br.com.meli.springboot2.praticaItegradora2.DTOs.PessoaEsporteDTO;
 import br.com.meli.springboot2.praticaItegradora2.exceptions.EsporteNaoCadastradoException;
 import br.com.meli.springboot2.praticaItegradora2.models.Esporte;
 import br.com.meli.springboot2.praticaItegradora2.models.Pessoa;
@@ -43,5 +44,9 @@ public class Service {
          } else {
              throw new EsporteNaoCadastradoException("esporte não cadastrado");
          }
+    }
+
+    public List<PessoaEsporteDTO> findPessoaSport() {
+        return PessoaEsporteDTO.generate(atletas.getPessoas());
     }
 }

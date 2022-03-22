@@ -5,6 +5,7 @@ import br.com.meli.springboot2.praticaItegradora2.models.Pessoa;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +14,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Repository
 public class PessoasRepo implements CRUDRepository<Pessoa, UUID> {
     private Map<UUID, Pessoa> pessoas = new HashMap<>();
     @Override

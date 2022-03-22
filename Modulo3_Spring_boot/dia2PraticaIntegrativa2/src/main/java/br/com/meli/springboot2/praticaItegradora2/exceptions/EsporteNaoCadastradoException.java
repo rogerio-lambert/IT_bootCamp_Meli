@@ -1,6 +1,6 @@
 package br.com.meli.springboot2.praticaItegradora2.exceptions;
 
-public class EsporteNaoCadastradoException extends Exception {
+public class EsporteNaoCadastradoException extends RuntimeException {
     private static final long serialVersionUID = -1957137827451037216L;
 
     public EsporteNaoCadastradoException(String mensagem) {
